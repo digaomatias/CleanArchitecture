@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build and Test
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
 
@@ -19,8 +19,11 @@ jobs:
         dotnet-version: '5.0.101' 
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./CleanArchitecture.sln
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./CleanArchitecture.sln --configuration Release --no-restore
+      
+    - name: Test
+      run: dotnet test ./CleanArchitecture.sln
     
