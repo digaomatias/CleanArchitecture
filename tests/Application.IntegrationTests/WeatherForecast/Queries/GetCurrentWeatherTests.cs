@@ -1,14 +1,15 @@
 using System.Threading.Tasks;
 using Application.WeatherForecasts.Queries.GetCurrentWeatherForecastQuery;
 using FluentAssertions;
-using NUnit.Framework;
-using static Application.IntegrationTests.Testing;
+using Xunit;
+using static Application.IntegrationTests.IntegrationFixture;
 
 namespace Application.IntegrationTests.WeatherForecast.Queries
 {
+    [Collection("Integration tests")]
     public class GetCurrentWeatherTests : TestBase
     {
-        [Test]
+        [Fact]
         public async Task ShouldReturnCurrentWeather()
         {
             var query = new GetCurrentWeatherForecastQuery
@@ -16,7 +17,7 @@ namespace Application.IntegrationTests.WeatherForecast.Queries
                 Id = 2172797,
                 Lat = 1,
                 Lon = 1,
-                Q = "London%2Cuk"
+                Q = "Auckland"
             };
 
             var result = await SendAsync(query);

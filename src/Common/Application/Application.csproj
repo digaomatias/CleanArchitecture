@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Villages\Commands\**" />
+    <EmbeddedResource Remove="Villages\Commands\**" />
+    <None Remove="Villages\Commands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="9.3.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.3.0" />
     <PackageReference Include="Mapster" Version="7.0.1" />
@@ -19,13 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ApplicationUser\Commands\Create\" />
-    <Folder Include="ApplicationUser\Commands\Delete\" />
-    <Folder Include="ApplicationUser\Commands\Update\" />
-    <Folder Include="Villages\Commands\" />
   </ItemGroup>
 
 </Project>

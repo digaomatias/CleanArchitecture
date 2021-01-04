@@ -4,14 +4,15 @@ using Application.Cities.Commands.Create;
 using Application.Common.Exceptions;
 using Domain.Entities;
 using FluentAssertions;
-using NUnit.Framework;
-using static Application.IntegrationTests.Testing;
+using Xunit;
+using static Application.IntegrationTests.IntegrationFixture;
 
 namespace Application.IntegrationTests.Cities.Commands
 {
+    [Collection("Integration tests")]
     public class CreateCityTests : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldRequireMinimumFields()
         {
             var command = new CreateCityCommand();
@@ -21,7 +22,7 @@ namespace Application.IntegrationTests.Cities.Commands
 
         }
 
-        [Test]
+        [Fact]
         public async Task ShouldRequireUniqueName()
         {
             await SendAsync(new CreateCityCommand
@@ -38,7 +39,7 @@ namespace Application.IntegrationTests.Cities.Commands
                 SendAsync(command)).Should().Throw<ValidationException>();
         }
 
-        [Test]
+        [Fact]
         public async Task ShouldCreateCity()
         {
             var userId = await RunAsDefaultUserAsync();

@@ -4,14 +4,15 @@ using Application.Cities.Commands.Delete;
 using Application.Common.Exceptions;
 using Domain.Entities;
 using FluentAssertions;
-using NUnit.Framework;
-using static Application.IntegrationTests.Testing;
+using Xunit;
+using static Application.IntegrationTests.IntegrationFixture;
 
 namespace Application.IntegrationTests.Cities.Commands
 {
+    [Collection("Integration tests")]
     public class DeleteCityTests : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldRequireValidCityId()
         {
             var command = new DeleteCityCommand { Id = 99 };
@@ -20,7 +21,7 @@ namespace Application.IntegrationTests.Cities.Commands
                 SendAsync(command)).Should().Throw<NotFoundException>();
         }
 
-        [Test]
+        [Fact]
         public async Task ShouldDeleteCity()
         {
             var city = await SendAsync(new CreateCityCommand

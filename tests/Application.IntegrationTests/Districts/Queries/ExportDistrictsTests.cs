@@ -6,15 +6,16 @@ using Application.Common.Security;
 using Application.Districts.Commands.Create;
 using Application.Districts.Queries;
 using FluentAssertions;
-using NUnit.Framework;
+using Xunit;
 
 namespace Application.IntegrationTests.Districts.Queries
 {
-    using static Testing;
+    using static IntegrationFixture;
 
+    [Collection("Integration tests")]
     public class ExportDistrictsTests : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldDenyAnonymousUser()
         {
             var query = new ExportDistrictsQuery();
@@ -25,7 +26,7 @@ namespace Application.IntegrationTests.Districts.Queries
                 SendAsync(query)).Should().Throw<UnauthorizedAccessException>();
         }
 
-        [Test]
+        [Fact]
         public async Task ShouldDenyNonAdministrator()
         {
             await RunAsDefaultUserAsync();
@@ -36,7 +37,7 @@ namespace Application.IntegrationTests.Districts.Queries
                 SendAsync(query)).Should().Throw<ForbiddenAccessException>();
         }
 
-        [Test]
+        [Fact]
         public async Task ShouldAllowAdministrator()
         {
             await RunAsAdministratorAsync();

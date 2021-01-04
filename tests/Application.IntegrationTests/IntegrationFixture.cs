@@ -12,22 +12,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using NUnit.Framework;
 using Respawn;
 using WebApi;
 
 namespace Application.IntegrationTests
 {
-    [SetUpFixture]
-    public class Testing
+    public class IntegrationFixture : IDisposable
     {
         private static IConfigurationRoot _configuration;
         private static IServiceScopeFactory _scopeFactory;
         private static Checkpoint _checkpoint;
         private static string _currentUserId;
-
-        [OneTimeSetUp]
-        public void RunBeforeAnyTests()
+        
+        public IntegrationFixture()
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -158,9 +155,8 @@ namespace Application.IntegrationTests
 
             await context.SaveChangesAsync();
         }
-
-        [OneTimeTearDown]
-        public void RunAfterAnyTests()
+        
+        public void Dispose()
         {
         }
     }

@@ -5,14 +5,15 @@ using Application.Districts.Commands.Create;
 using Application.Villages.Queries.GetVillagesWithPagination;
 using Domain.Entities;
 using FluentAssertions;
-using NUnit.Framework;
-using static Application.IntegrationTests.Testing;
+using Xunit;
+using static Application.IntegrationTests.IntegrationFixture;
 
 namespace Application.IntegrationTests.Villages.Queries
 {
+    [Collection("Integration tests")]
     public class GetAllVillagesWithPaginationTests : TestBase
     {
-        [Test]
+        [Fact]
         public async Task ShouldReturnAllCities()
         {
             var city = await SendAsync(new CreateCityCommand

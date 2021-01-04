@@ -1,13 +1,13 @@
 ﻿using System;
 using Application.Common.Exceptions;
 using FluentAssertions;
-using NUnit.Framework;
+using Xunit;
 
 namespace Application.UnitTests.Common.Exceptions
 {
     public class ValidateModelExceptionTests
     {
-        [Test]
+        [Fact]
         public void DefaultConstructorCreatesAnEmptyErrorDictionary()
         {
             var actual = new ValidateModelException().Errors;

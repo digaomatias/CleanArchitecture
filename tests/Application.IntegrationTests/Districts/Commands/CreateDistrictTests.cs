@@ -5,14 +5,15 @@ using Application.Common.Exceptions;
 using Application.Districts.Commands.Create;
 using Domain.Entities;
 using FluentAssertions;
-using NUnit.Framework;
-using static Application.IntegrationTests.Testing;
+using Xunit;
+using static Application.IntegrationTests.IntegrationFixture;
 
 namespace Application.IntegrationTests.Districts.Commands
 {
-    public class CreateDistrictTests
+    [Collection("Integration tests")]
+    public class CreateDistrictTests : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldRequireMinimumFields()
         {
             var command = new CreateDistrictCommand();
@@ -22,7 +23,7 @@ namespace Application.IntegrationTests.Districts.Commands
 
         }
 
-        [Test]
+        [Fact]
         public async Task ShouldCreateDistrict()
         {
             var city = await SendAsync(new CreateCityCommand

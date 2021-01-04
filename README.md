@@ -10,7 +10,7 @@ This is a solution template for creating a ASP.NET Core Web API following the pr
 * MediatR
 * Mapster
 * FluentValidation
-* NUnit, FluentAssertions, Moq & Respawn
+* xUnit, FluentAssertions, Moq & Respawn
 * Elasticsearch, Serilog, Kibana
 
 ## Getting Started

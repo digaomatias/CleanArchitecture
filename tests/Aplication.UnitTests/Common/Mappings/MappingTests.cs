@@ -5,7 +5,7 @@ using FluentAssertions;
 using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
+using Xunit;
 
 namespace Application.UnitTests.Common.Mappings
 {
@@ -28,9 +28,9 @@ namespace Application.UnitTests.Common.Mappings
         }
 
 
-        [Test]
-        [TestCase(typeof(City), typeof(CityDto))]
-        [TestCase(typeof(District), typeof(DistrictDto))]
+        [Theory]
+        [InlineData(typeof(City), typeof(CityDto))]
+        [InlineData(typeof(District), typeof(DistrictDto))]
         public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
         {
             var instance = Activator.CreateInstance(source);
@@ -38,7 +38,7 @@ namespace Application.UnitTests.Common.Mappings
             _mapper.Map(instance, source, destination);
         }
 
-        [Test]
+        [Fact]
         public void ShouldMappingCorrectly()
         {
             var city = new City { Id = 1, Name = "Bursa" };

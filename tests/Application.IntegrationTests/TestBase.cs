@@ -1,16 +1,24 @@
-﻿using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace Application.IntegrationTests
 {
-    using static Testing;
+    using static IntegrationFixture;
 
-    public class TestBase
+    public class TestBase : IAsyncLifetime
     {
-        [SetUp]
-        public async Task TestSetUp()
+        public async Task InitializeAsync()
         {
             await ResetState();
+        }
+
+        public Task DisposeAsync()
+        {
+            return Task.CompletedTask;
         }
     }
 }
