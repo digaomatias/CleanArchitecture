@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Leote.CleanArchitecture.Template</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Rodrigo Leote</authors>
     <owners>Rodrigo Leote</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
