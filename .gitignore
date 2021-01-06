@@ -338,7 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/.template.config
 /template.nuspec
 .vscode/launch.json
 .vscode/tasks.json

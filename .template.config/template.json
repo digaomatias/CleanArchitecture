@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Rodrigo M. Leote",
+    "classifications": [ "C#9", "CleanArchitecture", ".NET5" ], 
+    "name": "Clean Architecture solution",
+    "identity": "Leote.CleanArchitecture",         
+    "groupIdentity":"Leote.CleanArchitecture",
+    "shortName": "ca-net5",
+    "tags": {
+      "language": "C#",
+      "type":"project"
+    },
+    "sourceName": "CleanArchitecture",
+    "preferNameDirectory": true,
+    "symbols":{
+      "includetest": {
+          "type": "parameter",
+          "datatype": "bool",
+          "defaultValue": "true"
+      }
+    },
+    "sources":[{
+      "modifiers": [{
+        "condition": "(!includetest)",
+        "exclude": [ "tests/**/*"]
+        }
+      ],
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "**/README.md",
+        "**/nuget.config",
+        "**/LICENSE",
+        "**/.gitattributes",
+        "**/.gitignore",
+        "**/*.nupkg",
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        ".vs/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "**/*.lock.json",
+        "**/.git/**",
+        "**/.github/**",
+        "*.nuspec",
+        "**/node_modules/**",
+        "**/*.jpg"
+      ]
+    }]
+  }
