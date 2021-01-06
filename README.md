@@ -96,7 +96,7 @@ If you are running first time Windows 10 [WSL 2 (Windows Subsystem for Linux)](h
 
 ## Support
 
-If you are having problems, please let us know by [raising a new issue](https://github.com/iayti/CleanArchitecture/issues/new/choose).
+If you are having problems, please let us know by [raising a new issue](https://github.com/digaomatias/CleanArchitecture/issues/new/choose).
 
 ## License
 

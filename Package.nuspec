@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Leote.CleanArchitecture.Template</id>
+    <version>1.0.0</version>
+    <authors>Rodrigo Leote</authors>
+    <owners>Rodrigo Leote</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/digaomatias/CleanArchitecture</projectUrl>
+    <repository type="git" url="https://github.com/digaomatias/CleanArchitecture" branch="master" />
+    <description>Rodrigo Leote's take on a CleanArchitecture template using .NET 5.</description>
+    <copyright>$copyright$</copyright>
+    <tags>dotnet-core webapi csharp template</tags>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="**" exclude="**\bin\**\*;**\obj\**\*;**\*.user;**\*.lock.json;**\.DS_Store;**\.git\**\*;**\.github\**\*;**\.vs\**\*;**\*LICENSE;**\*.gitattributes;**\*README.md;**\*.gitignore;**\*nuget.config;" target="/content" />
+  </files>
+</package>

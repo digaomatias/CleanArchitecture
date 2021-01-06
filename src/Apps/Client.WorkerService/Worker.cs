@@ -29,7 +29,7 @@ namespace Client.WorkerService
                     var result = await loginClient.CreateAsync(new GetTokenQuery
                     {
                         Email = "test@test.com",
-                        Password = "Matech_1850"
+                        Password = "TestMaster_1850"
                     }, stoppingToken);
 
                     if (result.Succeeded)

@@ -17,11 +17,11 @@ namespace Infrastructure.Persistence
                 await roleManager.CreateAsync(administratorRole);
             }
 
-            var defaultUser = new ApplicationUser { UserName = "iayti", Email = "test@test.com" };
+            var defaultUser = new ApplicationUser { UserName = "TestMaster", Email = "test@test.com" };
 
             if (userManager.Users.All(u => u.UserName != defaultUser.UserName))
             {
-                await userManager.CreateAsync(defaultUser, "Matech_1850");
+                await userManager.CreateAsync(defaultUser, "TestMaster_1850");
                 await userManager.AddToRolesAsync(defaultUser, new[] { administratorRole.Name });
             }
         }
