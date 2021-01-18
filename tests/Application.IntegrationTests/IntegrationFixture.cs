@@ -101,6 +101,8 @@ namespace Application.IntegrationTests
             var userManager = scope.ServiceProvider.GetService<UserManager<Infrastructure.Identity.ApplicationUser>>();
 
             var user = new Infrastructure.Identity.ApplicationUser { UserName = userName, Email = userName };
+            var existingUser = await userManager.FindByEmailAsync(userName);
+            if (existingUser != null) return existingUser.Id;
 
             var result = await userManager.CreateAsync(user, password);
 
