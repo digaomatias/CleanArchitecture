@@ -6,6 +6,7 @@ using Application.Common.Interfaces;
 using Application.Dto;
 using CsvHelper;
 using Infrastructure.Files.Maps;
+using Mapster;
 
 namespace Infrastructure.Files
 {
@@ -17,8 +18,7 @@ namespace Infrastructure.Files
             using (var streamWriter = new StreamWriter(memoryStream, Encoding.UTF8))
             {
                 using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
-
-                csvWriter.Configuration.RegisterClassMap<DistrictMap>();
+                
                 csvWriter.WriteRecords(cities);
             }
 
